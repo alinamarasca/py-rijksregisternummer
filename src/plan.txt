@@ -1,0 +1,17 @@
+1. get date of birth (20.12.1987)
+  input 
+  write into result reversed
+  reversed: 
+  slice on slash 
+  make a list
+  reverse list
+
+2. get gender (female)
+  input bool
+  get random even or odd
+
+3. calc modulo 
+  take last 4 digits of birth
+  check if >= 2000
+  add/not add 2
+  calc: 97 - (2 + modulo) % 97
