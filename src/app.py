@@ -20,9 +20,7 @@ firstBlock = ".".join(temp)
 current = "".join(temp)
 
 # second block
-gender = input("Are you A: male or B: female?")
-min = 0
-max = 997
+gender = input("Are you male or female? Type A if you are a male, B if you are female.")
 randomNumber = ""
 
 # male - odd
@@ -35,6 +33,9 @@ elif (gender == "B"):
   randomNumber = int(random.choice(
     [i for i in range(2, 998) if i % 2 ==0]
   ))
+else:
+  print("")
+
 
 secondBlock = str(randomNumber)
 current =  current + secondBlock
@@ -48,7 +49,6 @@ else:
   thirdBlock = 97 - (int(current) % 97)
 
 result = str(firstBlock) + "-" + str(secondBlock) + "." + str(thirdBlock)
-print("HERE:", result)
-# print(firstBlock, secondBlock, thirdBlock)
+print(f"Rijkerigsternummer is: {result}")
 
 
