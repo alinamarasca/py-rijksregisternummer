@@ -12,7 +12,7 @@ thirdBlock = ""
 
 
 # first block
-dateOfBirth = input("Whats your date of birth?")
+dateOfBirth = input("Whats your date of birth? dd/mm/yy")
 temp = dateOfBirth.split('/')
 yearOfBirth = temp[2]
 temp.reverse()
@@ -24,18 +24,15 @@ gender = input("Are you male or female? Type A if you are a male, B if you are f
 randomNumber = ""
 
 # male - odd
-if (gender == "A"):
+if gender == "A" or gender == "b":
   randomNumber = random.choice(
     [i for i in range(1, 997) if i % 2 !=0]
   )
 # female - even
-elif (gender == "B"):
+elif gender == "B" or gender == "b":
   randomNumber = int(random.choice(
     [i for i in range(2, 998) if i % 2 ==0]
   ))
-else:
-  print("")
-
 
 secondBlock = str(randomNumber)
 current =  current + secondBlock
