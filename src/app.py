@@ -24,12 +24,12 @@ gender = input("Are you male or female? Type A if you are a male, B if you are f
 randomNumber = ""
 
 # male - odd
-if gender == "A" or gender == "b":
+if gender == "A" or gender == "A".lower():
   randomNumber = random.choice(
     [i for i in range(1, 997) if i % 2 !=0]
   )
 # female - even
-elif gender == "B" or gender == "b":
+elif gender == "B" or gender == "B".lower():
   randomNumber = int(random.choice(
     [i for i in range(2, 998) if i % 2 ==0]
   ))
@@ -45,7 +45,6 @@ if(int(yearOfBirth) >= 2000):
 else:
   thirdBlock = 97 - (int(current) % 97)
 
-result = str(firstBlock) + "-" + str(secondBlock) + "." + str(thirdBlock)
-print(f"Rijkerigsternummer is: {result}")
+print(f"Rijkerigsternummer is: {firstBlock}-{secondBlock}.{thirdBlock}")
 
 
