@@ -40,21 +40,15 @@ def calc_isnz():
 def calc_bis():
     # first block
     date_known = input("Is date of birth known? y/n")
-    formatted_dob = []
     if date_known == "y" or date_known == "y".upper():
         date_of_birth = input("What's your date of birth? dd/mm/yy")
         formatted_dob = c.formatDateOfBirth(date_of_birth)
-        year_of_birth = formatted_dob[2]
     else:
-        year_of_birth = random.randint(10, 99)
-        formatted_dob = ['00', '00', str(year_of_birth)]
+        formatted_dob = ['00', '00', str(random.randint(10, 99))]
 
-    first_block = ".".join(formatted_dob)
     # second block
-    # gender_known = input("Is gender known? y/n")
-    gender_known = "y"
-    # formatted_dob = formatted_dob
-
+    gender_known = input("Is gender known? y/n")
+    gender = ""
     if gender_known == "y" or gender_known == "y".upper():
         # month +40
         formatted_dob[1] = int(formatted_dob[1]) + 40
@@ -68,7 +62,9 @@ def calc_bis():
     second_block = str(c.calc_second_block(gender))
 
        # third block
-    second_block=second_block
     third_block = c.calc_third_block(formatted_dob, second_block)
 
-    print(f"BIS-nummer is: {first_block}-{second_block}.{third_block}")
+    string_date = [str(i) for i in formatted_dob]
+    number = ".".join(string_date)
+
+    print(f"BIS-nummer is: {number}-{second_block}.{third_block}")

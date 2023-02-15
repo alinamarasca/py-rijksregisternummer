@@ -20,12 +20,11 @@ def calc_second_block(gender):
 
 def calc_third_block(formatted_dob, gender_number):
     string_date = [str(i) for i in formatted_dob]
-    number = "".join(string_date) + gender_number
+    concatenation = "".join(string_date) + gender_number
     year = formatted_dob[2]
     if int(year) >= 2000:
-        temp = int("2" + number)
+        temp = int("2" + concatenation)
         return 97 - (temp % 97)
     else:
-        number = int(number)
-        print(number)
+        number = int(concatenation)
         return 97 - (int(number) % 97)
