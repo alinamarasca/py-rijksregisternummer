@@ -22,17 +22,14 @@ def calc_isnz():
     date_of_birth = input("What's your date of birth? dd/mm/yy")
     formatted_dob = c.formatDateOfBirth(date_of_birth)
 
-    current = "".join(formatted_dob)
     first_block = ".".join(formatted_dob)
 
     # second block
     gender = input("Are you male or female? Type A if you are a male, B if you are female. ")
     second_block = str(c.calc_second_block(gender))
 
-    current = current + second_block
-
     # third block
-    third_block = c.calc_third_block(current, formatted_dob[0])
+    third_block = c.calc_third_block(formatted_dob, second_block)
 
     print(f"Rijkerigsternummer is: {first_block}-{second_block}.{third_block}")
 
@@ -61,10 +58,10 @@ def calc_bis():
 
     second_block = str(c.calc_second_block(gender))
 
-       # third block
+    # third block
     third_block = c.calc_third_block(formatted_dob, second_block)
 
     string_date = [str(i) for i in formatted_dob]
-    number = ".".join(string_date)
+    first_block = ".".join(string_date)
 
-    print(f"BIS-nummer is: {number}-{second_block}.{third_block}")
+    print(f"BIS-nummer is: {first_block}-{second_block}.{third_block}")
