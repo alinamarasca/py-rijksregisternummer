@@ -1,8 +1,16 @@
 import random
 
 
-def formatDateOfBirth(date_of_birth):
-    return list(reversed(date_of_birth.split('/')))
+def extractYear(year):
+    str_array = [*year]
+    return "".join(str_array[2:])
+
+
+def formatDateOfBirth(dob):
+    date = dob.split('/')
+    yy = extractYear(date[2])
+    date[2] = yy
+    return list(reversed(date))
 
 
 def calc_second_block(gender):
@@ -16,15 +24,34 @@ def calc_second_block(gender):
         return int(random.choice(
             [i for i in range(2, 998) if i % 2 == 0]
         ))
+    else:
+        return "Error: wrong data"
 
 
-def calc_third_block(formatted_dob, gender_number):
+def calc_third_block(formatted_dob, year, gender_number):
     string_date = [str(i) for i in formatted_dob]
     concatenation = "".join(string_date) + gender_number
-    year = formatted_dob[2]
+    return concat_2_if_more_than_2000(concatenation, year)
+    # if int(year) >= 2000:
+    #     temp = int("2" + concatenation)
+    #     return 97 - (temp % 97)
+    # else:
+    #     number = int(concatenation)
+    #     return 97 - (int(number) % 97)
+
+
+def concat_2_if_more_than_2000(number, year):
     if int(year) >= 2000:
-        temp = int("2" + concatenation)
-        return 97 - (temp % 97)
+        temp = int("2" + number)
+        return str(97 - (temp % 97))
     else:
-        number = int(concatenation)
-        return 97 - (int(number) % 97)
+        number = int(number)
+        return str(97 - (int(number) % 97))
+
+
+def check_date_input_format(dob):
+    if len(dob) == 10 and dob[:2].isnumeric() and dob[3:5].isnumeric() and dob[6:].isnumeric() and \
+            dob[2] == "/" and dob[50 == "/"]:
+        return True
+    else:
+        return False

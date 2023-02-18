@@ -1,20 +1,16 @@
-# from oop import Number
-import oop
-from test import test
-
+import functions
 
 
 def main():
-    result = ""
-    # choice = input("what to calc? bis or rijk")
-    choice = "1"
+    choice = input("what to calc? bis or rijk")
     print(choice)
     if choice == '1':
         print("We are calculating BIS")
-        oop.calc_bis()
+        result = functions.calc_bis()
     elif choice == '2':
         print("We are calculating ISNZ")
-        oop.calc_isnz()
+        result = functions.calc_isnz()
+    print(f"Rijkerigsternummer is: {result}")
 
 if __name__ == '__main__':
     main()
