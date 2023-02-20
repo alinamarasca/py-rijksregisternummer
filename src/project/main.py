@@ -1,4 +1,4 @@
-import functions
+import calc_functions as c
 
 
 def main():
@@ -6,10 +6,10 @@ def main():
     print(choice)
     if choice == '1':
         print("We are calculating BIS")
-        result = functions.calc_bis()
+        result = c.calc_bis()
     elif choice == '2':
         print("We are calculating ISNZ")
-        result = functions.calc_isnz()
+        result = c.calc_isnz()
     print(f"Rijkerigsternummer is: {result}")
 
 if __name__ == '__main__':

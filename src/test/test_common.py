@@ -1,5 +1,5 @@
 import unittest
-import common as c
+from project import common as c
 
 
 class TestFormatDateOfBirth(unittest.TestCase):

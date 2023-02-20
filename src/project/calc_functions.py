@@ -4,15 +4,26 @@ import common as c
 
 
 def calc_isnz():
-    # FIRST BLOCK
-    date_of_birth = input("What's your date of birth? dd/mm/yy")
+    # first block
+    while True:
+        date_of_birth = input("What's your date of birth? dd/mm/yy")
+        if c.check_date_input_format(date_of_birth):
+            break
+        else:
+            print("Invalid input, try again.")
+            continue
 
     formatted_dob = c.formatDateOfBirth(date_of_birth)
-
     first_block = ".".join(formatted_dob)
 
     # second block
-    gender = input("Are you male or female? Type A if you are a male, B if you are female. ")
+    while True:
+        gender = input("Are you male or female? Type A if you are a male, B if you are female. ")
+        if gender.lower() == "a" or gender.lower() == "b":
+            break
+        else:
+            print("Invalid input, try again.")
+            continue
     second_block = str(c.calc_second_block(gender))
 
     # third block

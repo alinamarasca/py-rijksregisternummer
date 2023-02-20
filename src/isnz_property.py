@@ -1,6 +1,4 @@
-import random
-import datetime
-import common as c
+from project import common as c
 
 
 class Rijkregisternummer:

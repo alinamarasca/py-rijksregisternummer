@@ -32,13 +32,6 @@ def calc_third_block(formatted_dob, year, gender_number):
     string_date = [str(i) for i in formatted_dob]
     concatenation = "".join(string_date) + gender_number
     return concat_2_if_more_than_2000(concatenation, year)
-    # if int(year) >= 2000:
-    #     temp = int("2" + concatenation)
-    #     return 97 - (temp % 97)
-    # else:
-    #     number = int(concatenation)
-    #     return 97 - (int(number) % 97)
-
 
 def concat_2_if_more_than_2000(number, year):
     if int(year) >= 2000:
