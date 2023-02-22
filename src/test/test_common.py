@@ -36,24 +36,29 @@ class TestCalcSecondBlock(unittest.TestCase):
         self.assertEqual(res, "Error: wrong data")
 
 
-class TestConcat2IfMoreThan2000(unittest.TestCase):
-    def test_if_year_equals_2000_concat_2(self):
-        res = c.concat_2_if_more_than_2000("220420111", 2022)
-        self.assertEqual(res, "2")
+class TestCalcFinalNumber(unittest.TestCase):
+    def test_calc_final_number(self):
+        res = c.calc_final_number("871220434")
+        self.assertEqual(res, "4")
 
-    def test_if_year_more_than_2000_concat_2(self):
-        res = c.concat_2_if_more_than_2000("000317534", 2000)
-        self.assertEqual(res, 24)
-
-    def test_if_year_less_than_2000_not_concat_2(self):
-        res = c.concat_2_if_more_than_2000("561220765", 1956)
-        self.assertEqual(res, 89)
 
 class TestCheckDateInputFormat(unittest.TestCase):
     def test_detects_incorrect_input(self):
         res = c.check_date_input_format("20.12.1987")
-        self.assertEqual(res, "2")
+        self.assertEqual(res, False)
 
+class TestMakeThreeDigitsNumber(unittest.TestCase):
+    def test_adds_zeros_to_have_3_chars(self):
+        res = c.concat_zero_for_three_chars(2)
+        self.assertEqual(len(res), 3)
+
+    def test_adds_zeros_to_have_3_chars(self):
+        res = c.concat_zero_for_three_chars(10)
+        self.assertEqual(len(res), 3)
+
+    def test_adds_zeros_to_have_3_chars(self):
+        res = c.concat_zero_for_three_chars(99)
+        self.assertEqual(len(res), 3)
 
 if __name__ == "__main__":
     unittest.main()
