@@ -1,4 +1,21 @@
 import random
+from datetime import date, datetime
+
+
+def get_dob():
+    while True:
+        date_of_birth = input("What's your date of birth? dd/mm/yy")
+        if check_date_input_format(date_of_birth):
+            break
+        else:
+            print("Invalid input, try again.")
+            continue
+
+
+def generate_dob():
+    random_year = str(random.randint(1900, datetime.today().year))
+    return '00/00/' + random_year
+
 
 def extractYear(year):
     str_array = [*year]
@@ -6,10 +23,9 @@ def extractYear(year):
 
 
 def formatDateOfBirth(dob):
-    print(dob)
-    date = dob.split('/')
-    date[2] = extractYear(date[2])
-    return list(reversed(date))
+    dob = dob.split('/')
+    dob[2] = extractYear(dob[2])
+    return list(reversed(dob))
 
 
 def calc_second_block(gender):
@@ -46,9 +62,13 @@ def calc_third_block(formatted_dob, year, gender_number):
     concatenation = "".join(string_date) + gender_number
 
     if int(year) >= 2000:
-        return calc_final_number("2" + concatenation)
+        num = calc_final_number("2" + concatenation)
     else:
-        return calc_final_number(concatenation)
+        num = calc_final_number(concatenation)
+
+    if int(num) < 10:
+        num = "0" + num
+    return num
 
 
 def calc_final_number(number):
