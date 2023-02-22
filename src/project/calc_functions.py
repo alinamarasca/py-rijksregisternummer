@@ -4,25 +4,14 @@ import common as com
 
 def calc_isnz():
     # first block
-    while True:
-        date_of_birth = input("What's your date of birth? dd/mm/yy")
-        if com.check_date_input_format(date_of_birth):
-            break
-        else:
-            print("Invalid input, try again.")
-            continue
+    date_of_birth = com.get_dob()
 
     formatted_dob = com.formatDateOfBirth(date_of_birth)
     first_block = ".".join(formatted_dob)
 
     # second block
-    while True:
-        gender = input("Are you male or female? Type A if you are a male, B if you are female. ")
-        if gender.lower() == "a" or gender.lower() == "b":
-            break
-        else:
-            print("Invalid input, try again.")
-            continue
+
+    gender = com.get_gender()
     second_block = str(com.calc_second_block(gender))
 
     # third block
@@ -34,8 +23,8 @@ def calc_isnz():
 def calc_bis():
     # first block
     date_known = input("Is date of birth known? y/n")
-    if date_known.lower == "y":
-        date_of_birth = input("What's your date of birth? dd/mm/yyyy")
+    if date_known.lower() == "y":
+        date_of_birth = com.get_dob()
     else:
         date_of_birth = com.generate_dob()
 
@@ -48,13 +37,7 @@ def calc_bis():
         # month +40
         formatted_dob[1] = int(formatted_dob[1]) + 40
 
-        while True:
-            gender = input("Are you male or female? Type A if you are a male, B if you are female. ")
-            if gender.lower() == "a" or gender.lower() == "b":
-                break
-            else:
-                print("Invalid input, try again.")
-                continue
+        gender = com.get_gender()
 
     elif gender_known.lower() == "n":
         # month + 20

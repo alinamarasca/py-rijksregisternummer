@@ -1,5 +1,5 @@
 import random
-from datetime import date, datetime
+from datetime import  datetime
 
 
 def get_dob():
@@ -10,6 +10,18 @@ def get_dob():
         else:
             print("Invalid input, try again.")
             continue
+    return date_of_birth
+
+
+def get_gender():
+    while True:
+        gender = input("Are you male or female? Type A if you are a male, B if you are female. ")
+        if gender.lower() == "a" or gender.lower() == "b":
+            break
+        else:
+            print("Invalid input, try again.")
+            continue
+    return gender
 
 
 def generate_dob():
