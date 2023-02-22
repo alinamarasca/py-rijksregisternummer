@@ -1,5 +1,4 @@
 import random
-import datetime
 import common as com
 
 
@@ -38,8 +37,8 @@ def calc_bis():
     if date_known.lower == "y":
         date_of_birth = input("What's your date of birth? dd/mm/yyyy")
     else:
-        random_year = str(random.randint(1900, 2023))
-        date_of_birth = '00/00/' + random_year
+        date_of_birth = com.generate_dob()
+
     formatted_dob = com.formatDateOfBirth(date_of_birth)
 
     # second block
