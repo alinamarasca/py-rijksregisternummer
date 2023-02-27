@@ -1,0 +1,14 @@
+{
+  "be": {
+    "countryCode": "+32",
+    "landlineAreaCode": []
+  },
+  "de": {
+      "country code": "+49",
+      "landlineAreaCode": [
+        30,
+        221,
+        341
+      ]
+    }
+}
