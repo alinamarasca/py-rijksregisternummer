@@ -3,10 +3,14 @@ import string
 from datetime import datetime
 
 
-def select_from_range():
-    for i in range(1):
-        random_range = random.choice([(2, 4), (9, 16), (19, 20), (50, 71), (80, 90)])
-        return random.randint(random_range[0], random_range[1])
+def select_from_range(country):
+    if country == "be":
+        for i in range(1):
+            random_range = random.choice([(2, 4), (9, 16), (19, 20), (50, 71), (80, 90)])
+            area = str(random.randint(random_range[0], random_range[1]))
+            return format_area_code(area)
+    elif country == "de":
+        return random.choice([30, 221, 341])
 
 
 def format_area_code(area):
@@ -14,11 +18,27 @@ def format_area_code(area):
     return area
 
 
-def gen_subscriber_number(area_code):
+def gen_subscriber_number(country, area_code):
+    if country == "be":
+        return gen_subscriber_number_be(area_code)
+    if country == "de":
+        return gen_subscriber_number_de(area_code)
+
+
+def gen_subscriber_number_be(area_code):
     limit = 0
     if len(area_code) == 2:
         limit = 7
     elif len(area_code) == 3:
+        limit = 6
+    return "".join(random.choices(string.digits, k=int(limit)))
+
+
+def gen_subscriber_number_de(area_code):
+    limit = 0
+    if area_code == 30 or area_code == 221:
+        limit = 8
+    elif area_code == 341:
         limit = 6
     return "".join(random.choices(string.digits, k=int(limit)))
 
