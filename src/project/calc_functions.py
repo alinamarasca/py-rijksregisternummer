@@ -2,7 +2,7 @@ import random
 import common as com
 
 
-def calc_isnz():
+def isnz_generate():
     # first block
     date_of_birth = com.get_dob()
 
@@ -10,7 +10,6 @@ def calc_isnz():
     first_block = ".".join(formatted_dob)
 
     # second block
-
     gender = com.get_gender()
     second_block = str(com.calc_second_block(gender))
 
@@ -21,7 +20,7 @@ def calc_isnz():
     return str(first_block) + "-" + str(second_block) + "." + str(third_block)
 
 
-def calc_bis():
+def bis_generate():
     # first block
     date_known = input("Is date of birth known? y/n")
     if date_known.lower() == "y":

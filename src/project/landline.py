@@ -1,28 +1,14 @@
-import random
-import string
+import json
+from phonenumbers_db import phones as db
 import common as c
-from collections import OrderedDict
 
 
-# ignore = [17, 18, 66, 72, 73, 74, 75, 76, 77, 78, 79]
+def landline_generate():
+    selected_country = input('''Which country?''')
+    # phone_type = "landline"
+    data = json.loads(db)[selected_country]
 
-def gen_landline():
-    country_code = OrderedDict()
-    country_code['be'] = '+32'
-    country_code['de'] = '+49'
-
-    selected = input('''
-    Select country
-    1. be
-    2. de
-    ''')
-
-    index = int(selected) - 1
-    country = list(country_code.keys())[index]
-    international = country_code[country]
-    area = c.select_from_range(country)
-    # area = c.format_area_code(str(random_number))
-
-    subscriber = c.gen_subscriber_number(country, area)
-
-    return f"{international} {area} {subscriber}"
+    international_prefix = "+" + data[0]["prefix"]
+    country_area = c.area_code_array(data[1]["landlineAreaCode"])
+    landline_number = c.landline_number_gen(data[2]["length"], country_area)
+    print(f"{international_prefix} {country_area} {landline_number}")

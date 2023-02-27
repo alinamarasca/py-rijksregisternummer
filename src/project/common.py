@@ -13,6 +13,10 @@ def select_from_range(country):
         return random.choice([30, 221, 341])
 
 
+def area_code_array(area_codes):
+    return random.choice(area_codes)
+
+
 def format_area_code(area):
     area = '0' + area
     return area
@@ -20,12 +24,13 @@ def format_area_code(area):
 
 def gen_subscriber_number(country, area_code):
     if country == "be":
-        return gen_subscriber_number_be(area_code)
+        return be_subscriber_number_gen(area_code)
     if country == "de":
         return gen_subscriber_number_de(area_code)
 
 
-def gen_subscriber_number_be(area_code):
+def be_subscriber_number_gen(area_code):
+    # be_subscirber_number_gen
     limit = 0
     if len(area_code) == 2:
         limit = 7
@@ -33,14 +38,12 @@ def gen_subscriber_number_be(area_code):
         limit = 6
     return "".join(random.choices(string.digits, k=int(limit)))
 
-
-def gen_subscriber_number_de(area_code):
-    limit = 0
-    if area_code == 30 or area_code == 221:
-        limit = 8
-    elif area_code == 341:
-        limit = 6
-    return "".join(random.choices(string.digits, k=int(limit)))
+def landline_number_gen(rules, country_area):
+    length = 0
+    for key, value in rules.items():
+        if country_area in value:
+            length = key
+    return "".join(random.choices(string.digits, k=int(length)))
 
 
 def get_dob():
