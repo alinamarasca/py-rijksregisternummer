@@ -1,6 +1,6 @@
 import json
 from phonenumbers_db import phones as db
-import common as c
+from test import common as c
 
 
 def landline_generate():

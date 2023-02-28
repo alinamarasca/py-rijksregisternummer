@@ -1,4 +1,4 @@
-from project import common as c
+from test import common as c
 
 
 class Rijkregisternummer:

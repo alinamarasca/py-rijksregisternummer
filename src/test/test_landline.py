@@ -1,5 +1,5 @@
 import unittest
-from project import common as c
+from test import common as c
 
 
 class TestAreaCodeBe(unittest.TestCase):
