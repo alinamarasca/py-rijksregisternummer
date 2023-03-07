@@ -21,7 +21,7 @@ def format_area_code(area):
     area = '0' + area
     return area
 
-
+#
 def gen_subscriber_number(country, area_code):
     if country == "be":
         return be_subscriber_number_gen(area_code)

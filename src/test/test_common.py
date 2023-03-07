@@ -1,5 +1,6 @@
 import unittest
-from project import common as c
+from test import common as c
+
 
 class TestFormatDateOfBirth(unittest.TestCase):
     def test_returns_inverted_list(self):

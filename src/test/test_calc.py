@@ -1,25 +1,14 @@
 import re
 import unittest
-from unittest import mock
-from project import calc_functions as c
-from unittest.mock import patch
+from project import bis as b
+from project import isnz as i
 
 
 class TestCalcISNZrightFormat(unittest.TestCase):
+    res = i.isnz_generate()
 
-    # def setUp(self):
-    #     self.patcher = mock.patch("project.main.main")
-    #     self.patcher.return_value = ["20/12/1987"]
-    #     self.patcher.start()
-
-    res = c.calc_isnz()
-
-    # @mock.patch('module_under_test.input', create=True)
-    # @mock.patch("project.main", return_value=("20/12/1987", "y"))
-    # def test_is_numeric(self):
-    #     b = c.calc_isnz()
-    #     no_punctuation = re.sub(r'[^\w\s]', '', b)
-    #     self.assertTrue(no_punctuation.isnumeric())
+    # cf.isnz_generate.raw_input = lambda _: '20/12/1987'
+    # cf.isnz_generate.raw_input = lambda _: 'a'
 
     def test_is_numeric(self, res):
         no_punctuation = re.sub(r'[^\w\s]', '', res)
@@ -57,8 +46,9 @@ class TestCalcISNZrightFormat(unittest.TestCase):
     #
 
 
-def tearDown(self):
-    self.patcher.stop()
+#
+# def tearDown(self):
+#     self.patcher.stop()
 
 
 if __name__ == "__main__":
